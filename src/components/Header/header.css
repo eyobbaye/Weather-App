@@ -74,11 +74,11 @@ body {
   width: 40%;
 }
 .details {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2 20px;
-  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 30px;
+  padding: 20px;
+  margin-top: 0px;
 }
 .detalis1 {
   display: flex;
@@ -86,13 +86,6 @@ body {
   justify-content: space-around;
   padding: 0 20px;
   margin-top: 20px;
-}
-.long,
-.lat {
-  font-size: 28px;
-  margin-top: 6px;
-  margin-right: 10px;
-  justify-content: space-between;
 }
 .sea,
 .country {
@@ -124,5 +117,5 @@ body {
   font-size: 14px;
   margin-top: 10px;
   display: none;
-  color: red !important;
+  color: red;
 }

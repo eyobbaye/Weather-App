@@ -10,6 +10,7 @@ import clear from "../../assets/images/clear.png";
 import clouds from "../../assets/images/clouds.png";
 import drizzle from "../../assets/images/drizzle.png";
 import snow from "../../assets/images/snow.png";
+import sea from "../../assets/images/sea-level.png";
 // import mist from "../../assets/images/mist.png";
 
 const weatherIons = {
@@ -81,9 +82,19 @@ const Header = () => {
                   <p className="wind">{weatherData.wind?.speed} km/h</p>
                   <p>Wind Speed</p>
                 </div>
+              </div>
+              <div className="col">
+                <img src={wind} alt="wind-icon" />
                 <div>
-                  {/* <p className="wind">{weatherData.coord?.lon}long</p> */}
-                  <p className="wind">{weatherData.sys?.country}</p>
+                  <p className="country">{weatherData.sys?.country} </p>
+                  <p>Counrty</p>
+                </div>
+              </div>
+              <div className="col">
+                <img src={sea} alt="sea-level icon" />
+                <div>
+                  <p className="sea">{weatherData.main?.sea_level}</p>
+                  <p>Sea Level</p>
                 </div>
               </div>
             </div>
