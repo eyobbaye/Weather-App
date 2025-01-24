@@ -12,7 +12,7 @@ const useWeatherAPI = (city) => {
     const fetchWeatherData = async () => {
       try {
         const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
-        if (response.status === 404) {
+        if (response.code == 404) {
           setError("Unknown city name");
         } else {
           const data = await response.json();

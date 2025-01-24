@@ -6,6 +6,29 @@ import rain from "../../assets/images/rain.png";
 import humidity from "../../assets/images/humidity.png";
 import wind from "../../assets/images/wind.png";
 
+import clear from "../../assets/images/clear.png";
+import clouds from "../../assets/images/clouds.png";
+import drizzle from "../../assets/images/drizzle.png";
+import snow from "../../assets/images/snow.png";
+// import mist from "../../assets/images/mist.png";
+
+const weatherIons = {
+  "01d": clear,
+  "01n": clear,
+  "02d": clouds,
+  "02n": clouds,
+  "03d": clouds,
+  "03n": clouds,
+  "04d": clouds,
+  "04n": clouds,
+  "09d": drizzle,
+  "09n": drizzle,
+  "10d": rain,
+  "10n": rain,
+  "13d": snow,
+  "13n": snow,
+};
+
 const Header = () => {
   const [city, setCity] = useState("");
   const { weatherData, error } = useWeatherAPI(city);
@@ -34,7 +57,14 @@ const Header = () => {
           <div className="error">{error}</div>
         ) : (
           <div className="weather">
-            <img src={rain} alt="weather-icon" />
+            <img
+              src={
+                weatherData.weather
+                  ? weatherIons[weatherData.weather[0].icon]
+                  : rain
+              }
+              alt="weather-icon"
+            />
             <h1 className="temp">{Math.ceil(weatherData.main?.temp)}°C</h1>
             <h2 className="city">{weatherData.name}</h2>
             <div className="details">
@@ -50,6 +80,10 @@ const Header = () => {
                 <div>
                   <p className="wind">{weatherData.wind?.speed} km/h</p>
                   <p>Wind Speed</p>
+                </div>
+                <div>
+                  {/* <p className="wind">{weatherData.coord?.lon}long</p> */}
+                  <p className="wind">{weatherData.sys?.country}</p>
                 </div>
               </div>
             </div>
