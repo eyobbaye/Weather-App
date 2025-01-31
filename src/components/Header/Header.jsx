@@ -91,7 +91,7 @@ const Header = () => {
                 </div>
               </div>
               <div className="col">
-                <img src={sea} alt="sea-level icon" />
+                <img src={sea} alt="sea-level-icon" className="sea" />
                 <div>
                   <p className="sea">{weatherData.main?.sea_level}</p>
                   <p>Sea Level</p>
